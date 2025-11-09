@@ -6,8 +6,7 @@ import matplotlib.pyplot as plt
 # ===============================
 # 1️⃣ SETUP & IMPORT DATA
 # ===============================
-os.chdir("C:/Users/Lab. TI_GKB/Desktop")
-file_path = "Data_Wisudawan.xlsx"
+file_path = "Data Wisudawan fix.xlsx"
 output_file = "rekap_wisuda_final.xlsx"
 
 try:
@@ -21,9 +20,9 @@ try:
     # ===============================
     # 2️⃣ DATA CLEANSING
     # ===============================
-    data.columns = data.columns.str.strip()
-    data = data.dropna(subset=['NIM', 'Nama Mahasiswa', 'Program Studi', 'IPK', 'Lama Studi (Semester)', 'Tahun Wisuda'])
-    data = data.fillna({'IPK': 0, 'Lama Studi (Semester)': 0})
+    # data.columns = data.columns.str.strip()
+    # data = data.dropna(subset=['NIM', 'Nama Mahasiswa', 'Program Studi', 'IPK', 'Lama Studi (Semester)', 'Tahun Wisuda'])
+    # data = data.fillna({'IPK': 0, 'Lama Studi (Semester)': 0})
 
     # Pastikan tipe data numerik
     data['IPK'] = pd.to_numeric(data['IPK'], errors='coerce')
