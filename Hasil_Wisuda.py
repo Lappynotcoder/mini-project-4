@@ -130,6 +130,7 @@ try:
     # 8️⃣ SIMPAN HASIL KE FILE EXCEL
     # ===============================
     with pd.ExcelWriter(output_file, engine='openpyxl') as writer:
+        kolom_urut = [col for col in data.columns if col != 'Tahun Wisuda'] + ['Tahun Wisuda']
         data.to_excel(writer, index=False, sheet_name='Data Wisudawan Lengkap')
         jumlah_per_prodi.to_excel(writer, index=False, sheet_name='Jumlah per Prodi')
         ipk_rata_per_prodi.to_excel(writer, index=False, sheet_name='Rata IPK per Prodi')
