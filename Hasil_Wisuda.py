@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # ===============================
 # 1️⃣ SETUP & IMPORT DATA
 # ===============================
-file_path = r"D:\BARU\mini-project-4\Data Wisudawan fix.xlsx"
+file_path = r"Data Wisudawan fix.xlsx"
 output_file = "rekap_wisuda_final.xlsx"
 
 try:
