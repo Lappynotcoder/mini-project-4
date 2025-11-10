@@ -69,6 +69,14 @@ try:
     data['Predikat Wisuda'] = data.apply(tentukan_predikat, axis=1)
 
     # ===============================
+    # PINDAHKAN KOLOM TAHUN WISUDA KE PALING BELAKANG
+    # ===============================
+    if 'Tahun Wisuda' in data.columns:
+        cols = [col for col in data.columns if col != 'Tahun Wisuda']
+        cols.append('Tahun Wisuda')
+        data = data[cols]
+
+    # ===============================
     # 6️⃣ OUTPUT DI TERMINAL
     # ===============================
     print("\n===============================")
@@ -151,4 +159,5 @@ except ValueError as e:
     print(f"❌ Error: {e}")
 
 except Exception as e:
+
     print(f"❌ Terjadi kesalahan tak terduga: {e}")
