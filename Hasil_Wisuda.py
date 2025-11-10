@@ -69,6 +69,14 @@ try:
     data['Predikat Wisuda'] = data.apply(tentukan_predikat, axis=1)
 
     # ===============================
+    # PINDAHKAN KOLOM TAHUN WISUDA KE PALING BELAKANG
+    # ===============================
+    if 'Tahun Wisuda' in data.columns:
+        cols = [col for col in data.columns if col != 'Tahun Wisuda']
+        cols.append('Tahun Wisuda')
+        data = data[cols]
+
+    # ===============================
     # 6️⃣ OUTPUT DI TERMINAL
     # ===============================
     print("\n===============================")
@@ -150,6 +158,7 @@ try:
     # 8️⃣ SIMPAN HASIL KE FILE EXCEL
     # ===============================
     with pd.ExcelWriter(output_file, engine='openpyxl') as writer:
+        kolom_urut = [col for col in data.columns if col != 'Tahun Wisuda'] + ['Tahun Wisuda']
         data.to_excel(writer, index=False, sheet_name='Data Wisudawan Lengkap')
         jumlah_per_prodi.to_excel(writer, index=False, sheet_name='Jumlah per Prodi')
         ipk_rata_per_prodi.to_excel(writer, index=False, sheet_name='Rata IPK per Prodi')
@@ -170,4 +179,5 @@ except ValueError as e:
     print(f"❌ Error: {e}")
 
 except Exception as e:
+
     print(f"❌ Terjadi kesalahan tak terduga: {e}")
