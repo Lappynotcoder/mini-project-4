@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # ===============================
 # 1️⃣ SETUP & IMPORT DATA
 # ===============================
-file_path = "Data Wisudawan fix.xlsx"
+file_path = r"F:\vcobacoba\mini-project-4\Data Wisudawan fix.xlsx"
 output_file = "rekap_wisuda_final.xlsx"
 
 try:
@@ -125,6 +125,26 @@ try:
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.tight_layout()
     plt.show()
+
+        # --- Grafik Cumlaude per Program Studi ---
+    cumlaude_per_prodi = (
+        data[data['Predikat Wisuda'] == 'Cumlaude (Dengan Pujian)']
+        .groupby('Program Studi')['NIM']
+        .count()
+        .reset_index()
+    )
+    cumlaude_per_prodi.columns = ['Program Studi', 'Jumlah Cumlaude']
+
+    plt.figure(figsize=(10, 6))
+    plt.bar(cumlaude_per_prodi['Program Studi'], cumlaude_per_prodi['Jumlah Cumlaude'], color='mediumseagreen')
+    plt.title('Jumlah Wisudawan Cumlaude per Program Studi')
+    plt.xlabel('Program Studi')
+    plt.ylabel('Jumlah Cumlaude')
+    plt.xticks(rotation=45, ha='right')
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.tight_layout()
+    plt.show()
+
 
     # ===============================
     # 8️⃣ SIMPAN HASIL KE FILE EXCEL
