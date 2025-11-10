@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # ===============================
 # 1️⃣ SETUP & IMPORT DATA
 # ===============================
-file_path = r"F:\vcobacoba\mini-project-4\Data Wisudawan fix.xlsx"
+file_path = r"D:\BARU\mini-project-4\Data Wisudawan fix.xlsx"
 output_file = "rekap_wisuda_final.xlsx"
 
 try:
@@ -113,6 +113,7 @@ try:
     plt.xticks(rotation=45, ha='right')
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.tight_layout()
+    plt.savefig("grafik_jumlah_wisudawan_per_prodi.png", dpi=300)
     plt.show()
 
     # --- Grafik Pie Distribusi Predikat Kelulusan ---
@@ -120,6 +121,7 @@ try:
     plt.figure(figsize=(8, 8))
     plt.pie(distribusi_predikat, labels=distribusi_predikat.index, autopct='%1.1f%%', startangle=140, colors=plt.cm.Set3.colors)
     plt.title('Distribusi Predikat Wisuda')
+    plt.savefig("grafik_predikat_wisuda.png", dpi=300)
     plt.show()
 
     # --- Grafik Perbandingan Rata-rata IPK antar Prodi (opsional) ---
@@ -132,6 +134,7 @@ try:
     plt.xticks(rotation=45, ha='right')
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.tight_layout()
+    plt.savefig("grafik_rata_ipk_per_prodi.png", dpi=300)
     plt.show()
 
         # --- Grafik Cumlaude per Program Studi ---
@@ -151,6 +154,7 @@ try:
     plt.xticks(rotation=45, ha='right')
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.tight_layout()
+    plt.savefig("grafik_cumlaude_per_prodi.png", dpi=300)
     plt.show()
 
 
